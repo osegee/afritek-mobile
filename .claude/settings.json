@@ -1,5 +1,13 @@
 {
   "enabledPlugins": {
     "expo@claude-plugins-official": true
+  },
+
+  "anthropicBaseUrl": "https://agentrouter.org",
+  "anthropicApiKey": "sk-WO4DaTB937t6mRiVnCeahLfkbPGXY4eSEDjxlpcHdZpDl6pU",
+  "model": "claude-opus-4-8",
+
+  "permissions": {
+    "deny": ["read:node_modules/**"]
   }
 }
