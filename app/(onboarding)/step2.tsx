@@ -16,20 +16,12 @@ import {
   OnboardingType,
 } from "@/constants/onboarding-theme";
 
-/**
- * Onboarding step 2 — Figma node 1:488 ("flash screen").
- *
- * Same construction as step 1: exported hero artwork behind a black panel,
- * native type on top. The floating cards differ (payment card + contact card)
- * and the heading uses a tighter 35pt line height.
- */
 export default function OnboardingStepTwo() {
   const router = useRouter();
   const scale = useDesignScale();
 
   return (
     <View style={styles.screen}>
-      {/* Hero artwork — design-space 61,97 within the 390x844 frame. */}
       <Image
         source={require("@/assets/images/onboarding/step2-hero.png")}
         style={[
@@ -45,7 +37,6 @@ export default function OnboardingStepTwo() {
         transition={200}
       />
 
-      {/* Payment card, floating over the hero's left edge. */}
       <Image
         source={require("@/assets/images/onboarding/step2-payment.png")}
         style={[
@@ -60,7 +51,6 @@ export default function OnboardingStepTwo() {
         contentFit="contain"
       />
 
-      {/* Contact card, overlapping the hero's bottom-right. */}
       <Image
         source={require("@/assets/images/onboarding/step2-contact.png")}
         style={[
@@ -75,7 +65,6 @@ export default function OnboardingStepTwo() {
         contentFit="contain"
       />
 
-      {/* Rectangle 4220 — starts 12pt lower than on step 1. */}
       <View style={[styles.fadePanel, { top: 420 * scale }]} />
 
       <SafeAreaView style={styles.safeArea} edges={["top", "bottom"]}>
@@ -95,10 +84,7 @@ export default function OnboardingStepTwo() {
 
         <View style={[styles.navBar, { paddingHorizontal: 36 * scale }]}>
           <Pagination total={ONBOARDING_STEPS} activeIndex={1} scale={scale} />
-          {/*
-           * Final step. The destination is intentionally not wired up yet —
-           * it will point at the auth flow once that section exists.
-           */}
+
           <NextButton
             scale={scale}
             accessibilityLabel="Finish onboarding"
@@ -106,7 +92,6 @@ export default function OnboardingStepTwo() {
           />
         </View>
 
-        {/* Demonstrates the <Link> route back to step 1, per the nav brief. */}
         <Link href="/(onboarding)" asChild>
           <Pressable
             accessibilityRole="button"
