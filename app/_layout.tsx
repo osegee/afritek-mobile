@@ -15,9 +15,10 @@ export default function RootLayout() {
           <Stack.Screen name="(onboarding)" />
           <Stack.Screen name="(auth)" />
         </Stack>
-        {/* "auto" flips the clock/battery/network icons to contrast the
-            screen behind them: white on dark backgrounds, dark on light. */}
-        <StatusBar style="auto" />
+        {/* Every current screen (onboarding, auth) is dark, so light icons
+            keep the clock/battery/network visible. A future light-background
+            group should render its own <StatusBar style="dark" />. */}
+        <StatusBar style="light" />
       </SafeAreaProvider>
     </AuthProvider>
   );
