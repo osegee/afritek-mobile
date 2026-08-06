@@ -9,8 +9,10 @@ export default function OnboardingLayout() {
         animation: "slide_from_right",
       }}
     >
+      <Stack.Screen name="splash" options={{ animation: "fade" }} />
       <Stack.Screen name="index" />
       <Stack.Screen name="step2" />
+      <Stack.Screen name="step3" />
     </Stack>
   );
 }

@@ -91,4 +91,4 @@ export const OnboardingControls = {
 };
 
 /** Total steps in the flow — drives the pagination pill count. */
-export const ONBOARDING_STEPS = 2;
+export const ONBOARDING_STEPS = 3;

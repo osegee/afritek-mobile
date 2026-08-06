@@ -1,7 +1,7 @@
 import { Image } from "expo-image";
-import { Link, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import React from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import {
@@ -88,11 +88,11 @@ export default function OnboardingStepTwo() {
           <NextButton
             scale={scale}
             accessibilityLabel="Finish onboarding"
-            onPress={() => router.back()}
+            onPress={() => router.push("/(onboarding)/step3")}
           />
         </View>
 
-        <Link href="/(onboarding)" asChild>
+        {/* <Link href="/(onboarding)" asChild>
           <Pressable
             accessibilityRole="button"
             accessibilityLabel="Back to step 1"
@@ -100,7 +100,7 @@ export default function OnboardingStepTwo() {
           >
             <Text style={styles.backLink}>Back</Text>
           </Pressable>
-        </Link>
+        </Link> */}
       </SafeAreaView>
     </View>
   );
