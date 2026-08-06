@@ -134,4 +134,14 @@ export const AuthLayout = {
   horizontalPadding: 24,
   verticalSpacing: 30,
   socialButtonSpacing: 16,
+  /**
+   * Top spacing below the safe-area inset, derived from Figma (390×844).
+   * Figma places the iPhone status bar at 62px, the back button at y=91, and
+   * the header block at y=154. SafeAreaView already consumes the status-bar
+   * inset, so these offsets are measured from just below it (≈ Figma value − 62).
+   */
+  backButtonTop: 29, // 91 − 62
+  headerTopNoBack: 92, // 154 − 62 (screens without a back button, e.g. Sign up)
+  headerGapAfterBack: 22, // back-button bottom (132) → header (154)
 };
+

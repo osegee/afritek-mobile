@@ -98,11 +98,11 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingHorizontal: AuthLayout.horizontalPadding,
-    paddingTop: 12,
+    paddingTop: AuthLayout.backButtonTop,
     paddingBottom: 32,
   },
   back: {
-    marginBottom: 20,
+    marginBottom: AuthLayout.headerGapAfterBack,
   },
   form: {
     marginTop: 32,

@@ -188,10 +188,10 @@ const styles = StyleSheet.create({
   },
   top: {
     paddingHorizontal: AuthLayout.horizontalPadding,
-    paddingTop: 12,
+    paddingTop: AuthLayout.backButtonTop,
   },
   back: {
-    marginBottom: 20,
+    marginBottom: AuthLayout.headerGapAfterBack,
   },
   field: {
     marginTop: 32,
