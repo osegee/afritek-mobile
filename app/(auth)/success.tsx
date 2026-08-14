@@ -23,10 +23,28 @@ export default function Success() {
   return (
     <SafeAreaView style={styles.screen} edges={["top", "bottom"]}>
       {/* Decorative sparkles, positioned loosely per the design. */}
-      <Text style={[styles.sparkle, { top: 90, left: 40, fontSize: 10 }]}>●</Text>
-      <Text style={[styles.sparkle, { top: 70, right: 40, fontSize: 22 }]}>▸</Text>
-      <Text style={[styles.sparkle, { top: 150, left: 130, fontSize: 18, color: "#5B3FD9" }]}>✦</Text>
-      <Text style={[styles.sparkle, { top: 190, right: 70, fontSize: 8, color: "#E97216" }]}>●</Text>
+      <Text style={[styles.sparkle, { top: 90, left: 40, fontSize: 10 }]}>
+        ●
+      </Text>
+      <Text style={[styles.sparkle, { top: 70, right: 40, fontSize: 22 }]}>
+        ▸
+      </Text>
+      <Text
+        style={[
+          styles.sparkle,
+          { top: 150, left: 130, fontSize: 18, color: "#5B3FD9" },
+        ]}
+      >
+        ✦
+      </Text>
+      <Text
+        style={[
+          styles.sparkle,
+          { top: 190, right: 70, fontSize: 8, color: "#E97216" },
+        ]}
+      >
+        ●
+      </Text>
 
       <View style={styles.center}>
         <Text style={styles.logo}>AT</Text>
@@ -42,7 +60,7 @@ export default function Success() {
       <View style={styles.bottom}>
         <PrimaryButton
           label="I'm ready to start!"
-          onPress={() => router.replace("/(onboarding)")}
+          onPress={() => router.replace("/(dashboard)" as any)}
         />
       </View>
     </SafeAreaView>

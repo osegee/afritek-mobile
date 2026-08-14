@@ -4,7 +4,7 @@
   },
 
   "anthropicBaseUrl": "https://agentrouter.org",
-  "anthropicApiKey": "sk-WO4DaTB937t6mRiVnCeahLfkbPGXY4eSEDjxlpcHdZpDl6pU",
+  "anthropicApiKey": "sk-QU7FhSXfPt4RionUffUJOOcqZMo2Bhng5yXjYrJCPuB8XqOE",
   "model": "claude-opus-4-8",
 
   "permissions": {

@@ -14,6 +14,7 @@ export default function RootLayout() {
           <Stack.Screen name="index" />
           <Stack.Screen name="(onboarding)" />
           <Stack.Screen name="(auth)" />
+          <Stack.Screen name="(dashboard)" />
         </Stack>
         {/* Every current screen (onboarding, auth) is dark, so light icons
             keep the clock/battery/network visible. A future light-background
