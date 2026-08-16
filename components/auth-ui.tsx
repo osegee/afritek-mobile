@@ -8,13 +8,12 @@ import {
   View,
   type KeyboardTypeOptions,
   type StyleProp,
-  type TextStyle,
   type ViewStyle,
 } from "react-native";
 
-import { AuthColors, AuthLayout, AuthType } from "@/constants/auth-theme";
 import { GoogleIcon } from "@/components/google-icon";
 import { GradientBorder } from "@/components/gradient-border";
+import { AuthColors, AuthLayout, AuthType } from "@/constants/auth-theme";
 
 /**
  * Shared authentication chrome, extracted so every auth screen stays visually
@@ -75,7 +74,7 @@ export function AuthHeader({
 }
 
 /**
- * Pill text input with the design's translucent fill + orange border.
+ * Pill text input with the design's translucent fill + #ce5510 border.
  * Supports an optional trailing password visibility toggle.
  */
 export function AuthTextField({
@@ -149,7 +148,7 @@ export function AuthTextField({
   );
 }
 
-/** Full-width orange primary CTA. */
+/** Full-width #ce5510 primary CTA. */
 export function PrimaryButton({
   label,
   onPress,

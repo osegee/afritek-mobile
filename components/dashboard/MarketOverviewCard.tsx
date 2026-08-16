@@ -6,7 +6,7 @@ import { formatNaira } from "../../lib/format";
 import type { ShareMarketOverview } from "../../types/dashboard";
 
 interface Props {
-  data: ShareMarketOverview;
+  data?: ShareMarketOverview & { totalValue?: number };
 }
 
 function Row({ label, value }: { label: string; value: string }) {
@@ -19,24 +19,22 @@ function Row({ label, value }: { label: string; value: string }) {
 }
 
 export default function MarketOverviewCard({ data }: Props) {
+  if (!data) return null;
+
+  const price = Number(data.pricePerShare ?? 0);
+  const remaining = Number(data.remainingShares ?? 0);
+  const sold = Number(data.soldShares ?? 0);
+  const totalValue = Number(data.totalMarketValue ?? data.totalValue ?? 0);
+
   return (
     <View style={styles.card}>
       <Text style={styles.title}>Share Market Overview</Text>
 
-      <Row label="Price per Share" value={formatNaira(data.pricePerShare)} />
-      <Row
-        label="Remaining Shares"
-        value={data.remainingShares.toLocaleString("en-NG")}
-      />
-      <Row
-        label="Sold Shares"
-        value={data.soldShares.toLocaleString("en-NG")}
-      />
+      <Row label="Price per Share" value={formatNaira(price)} />
+      <Row label="Remaining Shares" value={remaining.toLocaleString("en-NG")} />
+      <Row label="Sold Shares" value={sold.toLocaleString("en-NG")} />
       <View style={styles.divider} />
-      <Row
-        label="Total Market Value"
-        value={formatNaira(data.totalMarketValue)}
-      />
+      <Row label="Total Market Value" value={formatNaira(totalValue)} />
     </View>
   );
 }

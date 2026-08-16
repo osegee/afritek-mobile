@@ -1,16 +1,16 @@
 // components/dashboard/DashboardHeader.tsx
-import React from "react";
-import { View, Text, Image, Pressable, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { colors, spacing, radius } from "../../constants/colors";
-import type { DashboardUser } from "../../types/dashboard";
+import React from "react";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { colors, radius, spacing } from "../../constants/colors";
+// import type { DashboardUser } from "../../types/dashboard";
 
-interface Props {
-  user: DashboardUser;
-  onPressMenu: () => void;
-  onPressNotifications: () => void;
-  hasUnreadNotifications?: boolean;
-}
+// interface Props {
+//   user: DashboardUser;
+//   onPressMenu: () => void;
+//   onPressNotifications: () => void;
+//   hasUnreadNotifications?: boolean;
+// }
 
 function getInitials(name: string) {
   return name
@@ -26,19 +26,21 @@ export default function DashboardHeader({
   onPressMenu,
   onPressNotifications,
   hasUnreadNotifications,
-}: Props) {
+}: any) {
   return (
     <View style={styles.container}>
       <Pressable style={styles.profile} onPress={onPressMenu} hitSlop={8}>
-        {user.avatarUrl ? (
+        {/* {user.avatarUrl ? (
           <Image source={{ uri: user.avatarUrl }} style={styles.avatarImage} />
-        ) : (
+        ) : ( */}
           <View style={styles.avatarFallback}>
-            <Text style={styles.avatarInitials}>{getInitials(user.name)}</Text>
+            <Text style={styles.avatarInitials}>
+              {getInitials(user.fullName)}
+            </Text>
           </View>
-        )}
+        {/* )} */}
         <View>
-          <Text style={styles.name}>{user.name}</Text>
+          <Text style={styles.name}>{user.fullName}</Text>
           <Text style={styles.email}>{user.email}</Text>
         </View>
       </Pressable>

@@ -8,7 +8,7 @@ export const colors = {
   surfaceAlt: "#1D1D24",
   border: "#26262E",
 
-  gold: "#E3A63E",
+  gold: "#ce5510",
   goldMuted: "rgba(227, 166, 62, 0.15)",
 
   textPrimary: "#FFFFFF",
@@ -16,7 +16,7 @@ export const colors = {
   textMuted: "#6B6B74",
 
   success: "#3ECF8E",
-  danger: "#E35C5C",
+  danger: "#ce5510",
 
   overlay: "rgba(0, 0, 0, 0.6)",
 } as const;

@@ -7,6 +7,7 @@ import {
   ScrollView,
   StyleSheet,
   View,
+  Text,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -21,6 +22,7 @@ import {
 } from "@/components/auth-ui";
 import { AuthColors, AuthLayout } from "@/constants/auth-theme";
 import { useAuth } from "@/context/auth-context";
+import { colors } from "@/constants/colors";
 
 /** Sign up — Figma nodes 1:665 (empty) / 1:696 (filled). */
 export default function SignUp() {
@@ -29,6 +31,7 @@ export default function SignUp() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [refCode, setRefCode] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function handleSignUp() {
@@ -36,10 +39,11 @@ export default function SignUp() {
       Alert.alert("Missing fields", "Please fill in all fields.");
       return;
     }
+    const referralCode = refCode || "";
 
     setLoading(true);
     try {
-      await signUp(email, password, fullName);
+      await signUp(email, password, fullName, referralCode);
       router.push("/(auth)/phone");
     } catch (err) {
       Alert.alert("Sign up failed", (err as Error).message);
@@ -85,6 +89,18 @@ export default function SignUp() {
               placeholder="Password"
               secureTextEntry
             />
+            <AuthTextField
+              value={refCode}
+              onChangeText={setRefCode}
+              placeholder="Referral code (Optional)"
+              autoCapitalize="characters"
+            />
+          </View>
+
+          <View>
+            <Text style={styles.text}>
+              By continuing you agree to our <Text style={{textDecorationLine: "underline"}}>Terms & Conditions</Text>
+            </Text>
           </View>
 
           <PrimaryButton
@@ -140,6 +156,11 @@ const styles = StyleSheet.create({
   dividerWrap: {
     marginTop: 24,
     marginBottom: 20,
+  },
+  text: {
+    color: colors.textMuted,
+    textAlign: "center",
+    marginTop: 20,
   },
   social: {
     gap: AuthLayout.socialButtonSpacing,

@@ -13,6 +13,7 @@ export default function AuthLayout() {
       <Stack.Screen name="sign-up" />
       <Stack.Screen name="sign-in" />
       <Stack.Screen name="forgot-password" />
+      <Stack.Screen name="change-password" />
       <Stack.Screen name="phone" />
       <Stack.Screen name="verify-phone" />
       <Stack.Screen name="success" />

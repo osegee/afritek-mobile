@@ -1,7 +1,7 @@
 import axios, { type AxiosError } from "axios";
 import { TokenStorage } from "@/lib/storage/tokens";
 
-const BASE_URL = "https://afritek-mdr1.vercel.app/api/v1";
+const BASE_URL = "https://afritek-api.vercel.app/api/v1";
 
 export const apiClient = axios.create({
   baseURL: BASE_URL,

@@ -24,7 +24,6 @@ import {
 import { AuthColors, AuthLayout, AuthType } from "@/constants/auth-theme";
 import { useAuth } from "@/context/auth-context";
 
-/** Sign in — Figma nodes 1:734 (empty) / 1:775 (filled). */
 export default function SignIn() {
   const router = useRouter();
   const { signIn } = useAuth();
