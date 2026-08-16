@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { View, StyleSheet, StatusBar } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Tabs, useRouter, usePathname } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import { Tabs, usePathname, useRouter } from "expo-router";
+import React, { useState } from "react";
+import { StatusBar, StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import { colors } from "../../constants/colors";
+import { useAuth } from "@/context/auth-context";
 import DashboardHeader from "../../components/dashboard/DashboardHeader";
 import SideMenu from "../../components/dashboard/sideMenu";
-import { useAuth } from "@/context/auth-context";
+import { colors } from "../../constants/colors";
 
 export default function DashboardLayout() {
   const router = useRouter();
@@ -47,9 +47,12 @@ export default function DashboardLayout() {
   };
 
   const handleSignOut = async () => {
-    setMenuVisible(false);
-    if (signOut) {
+    try {
+      setMenuVisible(false);
+      router.replace("/(onboarding)");
       await signOut();
+    } catch (error) {
+      console.error("Sign out error:", error);
     }
   };
 

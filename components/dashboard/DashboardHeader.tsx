@@ -1,18 +1,11 @@
 // components/dashboard/DashboardHeader.tsx
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { colors, radius, spacing } from "../../constants/colors";
-// import type { DashboardUser } from "../../types/dashboard";
 
-// interface Props {
-//   user: DashboardUser;
-//   onPressMenu: () => void;
-//   onPressNotifications: () => void;
-//   hasUnreadNotifications?: boolean;
-// }
-
-function getInitials(name: string) {
+function getInitials(name?: string) {
+  if (!name) return "U";
   return name
     .trim()
     .split(/\s+/)
@@ -27,21 +20,20 @@ export default function DashboardHeader({
   onPressNotifications,
   hasUnreadNotifications,
 }: any) {
+  // If user is cleared during signout unmount phase, render empty container to prevent crashes
+  if (!user) return null;
+
   return (
     <View style={styles.container}>
       <Pressable style={styles.profile} onPress={onPressMenu} hitSlop={8}>
-        {/* {user.avatarUrl ? (
-          <Image source={{ uri: user.avatarUrl }} style={styles.avatarImage} />
-        ) : ( */}
-          <View style={styles.avatarFallback}>
-            <Text style={styles.avatarInitials}>
-              {getInitials(user.fullName)}
-            </Text>
-          </View>
-        {/* )} */}
+        <View style={styles.avatarFallback}>
+          <Text style={styles.avatarInitials}>
+            {getInitials(user?.fullName)}
+          </Text>
+        </View>
         <View>
-          <Text style={styles.name}>{user.fullName}</Text>
-          <Text style={styles.email}>{user.email}</Text>
+          <Text style={styles.name}>{user?.fullName ?? "User"}</Text>
+          <Text style={styles.email}>{user?.email ?? "User's Email"}</Text>
         </View>
       </Pressable>
 
@@ -79,12 +71,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     flexShrink: 1,
-  },
-  avatarImage: {
-    width: 40,
-    height: 40,
-    borderRadius: radius.pill,
-    marginRight: spacing.sm,
   },
   avatarFallback: {
     width: 40,

@@ -27,7 +27,7 @@ const MENU_ITEMS: MenuItem[] = [
     key: "dashboard",
     label: "Dashboard",
     icon: "grid-outline",
-    route: "/(dashboard)/index",
+    route: "/(dashboard)",
   },
   {
     key: "wallet",
