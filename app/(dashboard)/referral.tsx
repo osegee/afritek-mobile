@@ -26,12 +26,12 @@ interface ReferralStats {
     level1?: string;
     level2?: string;
   };
-  level1Users?: Array<{
+  level1Users?: [{
     uid?: string;
     _id?: string;
     fullName?: string;
     email?: string;
-  }>;
+  }];
 }
 
 export default function ReferralScreen() {
@@ -64,7 +64,7 @@ export default function ReferralScreen() {
   };
 
   const referralLink = stats?.referralCode
-    ? `https://yourdomain.com/register?ref=${stats.referralCode}`
+    ? `https://afritek.vercel.app/register?ref=${stats.referralCode}`
     : "No link generated";
 
   // Native React Native Clipboard

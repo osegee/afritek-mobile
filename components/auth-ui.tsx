@@ -74,7 +74,7 @@ export function AuthHeader({
 }
 
 /**
- * Pill text input with the design's translucent fill + #ce5510 border.
+ * Pill text input with the design's translucent fill + #F59E0B border.
  * Supports an optional trailing password visibility toggle.
  */
 export function AuthTextField({
@@ -148,7 +148,7 @@ export function AuthTextField({
   );
 }
 
-/** Full-width #ce5510 primary CTA. */
+/** Full-width #F59E0B primary CTA. */
 export function PrimaryButton({
   label,
   onPress,

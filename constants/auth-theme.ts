@@ -23,7 +23,7 @@ export const AuthColors = {
   /** Input placeholder */
   placeholder: "rgba(255, 255, 255, 0.5)",
   /** Primary CTA button */
-  ctaButton: "#ce5510",
+  ctaButton: "#F59E0B",
   /** CTA button text */
   ctaButtonText: "#FFFFFF",
   /** Social button bg */
@@ -39,15 +39,15 @@ export const AuthColors = {
   /** Link text muted */
   linkMuted: "#818898",
   /** Back button */
-  backButton: "#ce5510",
+  backButton: "#F59E0B",
 };
 
 /**
- * Active-input border gradient (indigo → #ce5510).
+ * Active-input border gradient (indigo → #F59E0B).
  *
  * In Figma (Sign up 1:696, Sign in 1:775, phone/verify) the filled input
  * fields carry a diagonal gradient stroke — blue/indigo at the top-right,
- * warming to #ce5510 at the bottom-left. Figma's code export flattens this to
+ * warming to #F59E0B at the bottom-left. Figma's code export flattens this to
  * a solid #E97216, but the rendered design shows the ramp. These stops match
  * the brand gradient used on the onboarding headings (OnboardingGradient).
  */

@@ -19,7 +19,7 @@ import {
 /**
  * Onboarding step 1 — Figma node 1:449 ("flash screen").
  *
- * The hero is a layered composition in Figma (#ce5510 ellipse + phone mockup +
+ * The hero is a layered composition in Figma (#F59E0B ellipse + phone mockup +
  * two floating cards), exported as flat 3x PNGs rather than reconstructed in
  * code. The dark panel below it is Rectangle 4220: solid black with a large
  * upward shadow, which reads as the artwork fading out.

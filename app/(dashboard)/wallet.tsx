@@ -173,7 +173,7 @@ export default function WalletScreen() {
           ))}
         </View>
 
-        {/* Deposit Form */}
+        {/* Deposit Form
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Deposit Funds</Text>
 
@@ -214,7 +214,7 @@ export default function WalletScreen() {
               </>
             )}
           </TouchableOpacity>
-        </View>
+        </View> */}
 
         {/* Recent Commissions List */}
         <View style={styles.card}>

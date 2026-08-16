@@ -29,7 +29,7 @@ export const OnboardingColors = {
   /** Body copy — white at 70% opacity. */
   body: "rgba(255, 255, 255, 0.7)",
   /** Next-button fill and active pagination pill. */
-  accent: "#ce5510",
+  accent: "#F59E0B",
   /** Neutral/2 — inactive pagination pills. */
   paginationInactive: "#494D58",
   /** Chevron glyph inside the next button. */

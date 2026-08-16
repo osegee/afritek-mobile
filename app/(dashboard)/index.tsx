@@ -1,38 +1,30 @@
 // app/(dashboard)/index.tsx
-import React, { useEffect, useState } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-import {
-  View,
-  Text,
-  ScrollView,
-  Pressable,
-  StyleSheet,
-  StatusBar,
-  ActivityIndicator,
-} from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { colors, spacing, radius } from "../../constants/colors";
-import { formatNaira } from "../../lib/format";
-import DashboardHeader from "../../components/dashboard/DashboardHeader";
-import StatCard from "../../components/dashboard/StatCard";
-import MarketOverviewCard from "../../components/dashboard/MarketOverviewCard";
-import TierProgressCard from "../../components/dashboard/TierProgressCard";
-import SideMenu from "../../components/dashboard/sideMenu";
-import type { InvestorTierProgress } from "../../types/dashboard";
 import { useAuth } from "@/context/auth-context";
-import { shareAPI, walletAPI, referralAPI } from "@/lib/api/auth";
-
-const MOCK_TIER_PROGRESS: InvestorTierProgress = {
-  currentTier: "Gold",
-  nextTier: "Platinum",
-  amountToNextTier: 500000,
-  progressPercent: 55,
-};
+import { referralAPI, shareAPI, walletAPI } from "@/lib/api/auth";
+import { Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
+import React, { useEffect, useState } from "react";
+import {
+  ActivityIndicator,
+  Pressable,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import MarketOverviewCard from "../../components/dashboard/MarketOverviewCard";
+import StatCard from "../../components/dashboard/StatCard";
+import SideMenu from "../../components/dashboard/sideMenu";
+import { colors, radius, spacing } from "../../constants/colors";
+import { formatNaira } from "../../lib/format";
 
 export default function DashboardScreen() {
   const [menuVisible, setMenuVisible] = useState(false);
   const [isLightMode, setIsLightMode] = useState(false);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   const { user, bootstrap } = useAuth();
   const [shareInfo, setShareInfo] = useState<any>(null);
@@ -103,12 +95,6 @@ export default function DashboardScreen() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <DashboardHeader
-          user={user}
-          onPressMenu={() => setMenuVisible(true)}
-          onPressNotifications={() => {}}
-        />
-
         <View style={styles.body}>
           <Text style={styles.greeting}>Welcome,</Text>
           <Text style={styles.greetingName}>{user?.fullName || "Guest"}</Text>
@@ -116,7 +102,10 @@ export default function DashboardScreen() {
             Track and manage your investments in one place.
           </Text>
 
-          <Pressable style={styles.buyButton} onPress={() => {}}>
+          <Pressable
+            style={styles.buyButton}
+            onPress={() => router.push("/(utilities)/buy-shares")}
+          >
             <Ionicons
               name="add-circle-outline"
               size={18}
@@ -199,8 +188,6 @@ export default function DashboardScreen() {
                   </View>
                 </View>
               )}
-
-              <TierProgressCard progress={MOCK_TIER_PROGRESS} />
             </>
           )}
         </View>

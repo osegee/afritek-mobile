@@ -1,16 +1,17 @@
 // components/dashboard/SideMenu.tsx
+import { Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import React, { useEffect, useRef } from "react";
 import {
-  View,
-  Text,
-  Pressable,
   Animated,
-  StyleSheet,
   Dimensions,
+  Pressable,
+  StyleSheet,
   Switch,
+  Text,
+  View,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { colors, spacing, radius } from "../../constants/colors";
+import { colors, radius, spacing } from "../../constants/colors";
 
 const MENU_WIDTH = Math.min(280, Dimensions.get("window").width * 0.78);
 
@@ -18,20 +19,52 @@ interface MenuItem {
   key: string;
   label: string;
   icon: keyof typeof Ionicons.glyphMap;
+  route: string;
 }
 
 const MENU_ITEMS: MenuItem[] = [
-  { key: "dashboard", label: "Dashboard", icon: "grid-outline" },
-  { key: "wallet", label: "Wallet", icon: "wallet-outline" },
+  {
+    key: "dashboard",
+    label: "Dashboard",
+    icon: "grid-outline",
+    route: "/(dashboard)/index",
+  },
+  {
+    key: "wallet",
+    label: "Wallet",
+    icon: "wallet-outline",
+    route: "/(dashboard)/wallet",
+  },
   {
     key: "withdrawals",
     label: "Withdrawals",
     icon: "arrow-down-circle-outline",
+    route: "/(dashboard)/withdraw",
   },
-  { key: "referrals", label: "Referrals", icon: "people-outline" },
-  { key: "dividends", label: "Dividends", icon: "trending-up-outline" },
-  { key: "support", label: "Support", icon: "help-buoy-outline" },
-  { key: "profile", label: "Profile", icon: "person-outline" },
+  {
+    key: "referrals",
+    label: "Referrals",
+    icon: "people-outline",
+    route: "/(dashboard)/referral",
+  },
+  {
+    key: "buy-shares",
+    label: "Buy shares",
+    icon: "add",
+    route: "/(utilities)/buy-shares",
+  },
+  {
+    key: "support",
+    label: "Support",
+    icon: "help-buoy-outline",
+    route: "/(utilities)/support",
+  },
+  {
+    key: "profile",
+    label: "Profile",
+    icon: "person-outline",
+    route: "/(utilities)/profile",
+  },
 ];
 
 interface Props {
@@ -48,11 +81,11 @@ export default function SideMenu({
   visible,
   activeKey,
   onClose,
-  onSelect,
   onSignOut,
   isLightMode,
   onToggleLightMode,
 }: Props) {
+  const router = useRouter();
   const translateX = useRef(new Animated.Value(-MENU_WIDTH)).current;
   const overlayOpacity = useRef(new Animated.Value(0)).current;
 
@@ -89,7 +122,7 @@ export default function SideMenu({
               <Pressable
                 key={item.key}
                 style={[styles.item, active && styles.itemActive]}
-                onPress={() => onSelect(item.key)}
+                onPress={() => router.push(item.route)}
               >
                 <Ionicons
                   name={item.icon}

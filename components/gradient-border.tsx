@@ -5,7 +5,7 @@ import { StyleSheet, View, type StyleProp, type ViewStyle } from "react-native";
 import { AuthInputGradient } from "@/constants/auth-theme";
 
 /**
- * Paints a 1px indigo→#ce5510 gradient stroke around its children, matching the
+ * Paints a 1px indigo→#F59E0B gradient stroke around its children, matching the
  * active-input border in Figma (Sign up 1:696 / Sign in 1:775 / phone / verify).
  *
  * React Native can't stroke a border with a gradient directly, so this renders
